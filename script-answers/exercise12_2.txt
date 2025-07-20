@@ -1,9 +1,10 @@
-liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ script script-answers/exercise12_2.txt
-Script started, output log file is 'script-answers/exercise12_2.txt'.
-liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ docker container run -it ubuntu bash
-root@8eef6849077c:/# mkdir /usr/src/app
-root@8eef6849077c:/# touch /usr/src/app/index.js
-root@8eef6849077c:/# exit
-exit
-liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ ^C
-liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ 
+Script started on 2025-07-21 06:42:26+10:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="140" LINES="21"]
+[?2004h]0;liyon@liyon-MacBookAir: ~/Documents/Github/part12-containers-applications[01;32mliyon@liyon-MacBookAir[00m:[01;34m~/Documents/Github/part12-containers-applications[00m$ docker container n[Krun -it ubuntu bash
+[?2004l[?2004h]0;root@6486072123b9: /root@6486072123b9:/# mkdir /usr/src/app
+[?2004l[?2004h]0;root@6486072123b9: /root@6486072123b9:/# touch /usr/src/app/index.js
+[?2004l[?2004h]0;root@6486072123b9: /root@6486072123b9:/# [Kexit
+[?2004lexit
+[?2004h]0;liyon@liyon-MacBookAir: ~/Documents/Github/part12-containers-applications[01;32mliyon@liyon-MacBookAir[00m:[01;34m~/Documents/Github/part12-containers-applications[00m$ exit
+[?2004lexit
+
+Script done on 2025-07-21 06:43:20+10:00 [COMMAND_EXIT_CODE="0"]
