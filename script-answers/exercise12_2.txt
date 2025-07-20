@@ -1,0 +1,9 @@
+liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ script script-answers/exercise12_2.txt
+Script started, output log file is 'script-answers/exercise12_2.txt'.
+liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ docker container run -it ubuntu bash
+root@8eef6849077c:/# mkdir /usr/src/app
+root@8eef6849077c:/# touch /usr/src/app/index.js
+root@8eef6849077c:/# exit
+exit
+liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ ^C
+liyon@liyon-MacBookAir:~/Documents/Github/part12-containers-applications$ 
