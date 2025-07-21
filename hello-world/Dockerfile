@@ -2,6 +2,6 @@ FROM node:20
 
 WORKDIR /usr/src/app
 
-COPY ./index.js ./index.js
+COPY . .
 
-CMD node index.js
+CMD DEBUG=hello-world:* npm start
