@@ -16,9 +16,11 @@ router.post('/', async (req, res) => {
     done: false
   })
   //add count
-  const count = getAsync('todos')
+  const count = await getAsync('added_todos')
+  console.log("count",count)
   const newCount = count ? Number(count) + 1 : 1
-  await setAsync('todos', newCount)
+  console.log("new count",newCount)
+  await setAsync('added_todos', newCount)
   res.send(todo);
 });
 
@@ -34,7 +36,8 @@ const findByIdMiddleware = async (req, res, next) => {
 
 /*STATISTICS*/
 router.get('/statistics', async (req, res) => {
-  const count = await getAsync('todos')
+  const count = await getAsync('added_todos')
+  console.log("count",count)
   res.json({
     added_todos : Number(count) || 0
   })
