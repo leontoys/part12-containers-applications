@@ -11,6 +11,7 @@ router.get('/', async (_, res) => {
 
 /* POST todo to listing. */
 router.post('/', async (req, res) => {
+  console.log('reached here POST request')
   const todo = await Todo.create({
     text: req.body.text,
     done: false
@@ -27,6 +28,7 @@ router.post('/', async (req, res) => {
 const singleRouter = express.Router();
 
 const findByIdMiddleware = async (req, res, next) => {
+  console.log("FIND BY ID MIDDLEWARE")
   const { id } = req.params
   req.todo = await Todo.findById(id)
   if (!req.todo) return res.sendStatus(404)
@@ -56,11 +58,13 @@ singleRouter.get('/', async (req, res) => {
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  if (req.body.text !== undefined) req.todo.text = req.body.text
-  if (req.body.done !== undefined) req.todo.done = req.body.done
+  console.log("PUT" ,req.todo,req.body)
+  const updatedTodo = await Todo.findByIdAndUpdate(req.todo.id, req.body, {
+    new:true
+  });
+  console.log(updatedTodo)
 
-  await todo.save()
-  res.send(req.todo)//done
+  res.send(updatedTodo)//done
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
