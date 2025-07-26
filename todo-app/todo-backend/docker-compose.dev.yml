@@ -17,7 +17,7 @@ services:
     command : ['redis-server','--appendonly','yes'] #overwrite the cmd
     volumes:
       - ./redis_data:/data
-  app:
+  server:
    image : todo-backend-dev
    build : 
     context : .
@@ -29,3 +29,6 @@ services:
    environment:
      MONGO_URL : mongodb://the_username:the_password@mongo:27017/the_database
      REDIS_URL : redis://redis:6379
+   container_name: todo-backend-dev
+  debug-helper:
+     image : busybox
