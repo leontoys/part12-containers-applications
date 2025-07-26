@@ -9,6 +9,6 @@ test('renders content', () => {
 
   render(<TodoItem todo={todo} deleteTodo={()=>{}} completeTodo={()=>{}} />)
 
-  const element = screen.getByText('Component testing is done with react-testing-library')
+  const element = screen.getByText('Fail Test')//('Component testing is done with react-testing-library')
   expect(element).toBeDefined()
 })
