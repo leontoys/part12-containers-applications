@@ -1,0 +1,13 @@
+services:
+  app:
+   image : todo-front-dev
+   build : 
+     context : . #to pick directory as build context
+     dockerfile:  .devDockerfile
+   volumes:
+     - ./:/usr/src/app # the same path as docker.componse.yml
+   ports:
+     - 3210:5173 
+   container_name: todo-front-dev 
+  debug-helper:
+    image: busybox
