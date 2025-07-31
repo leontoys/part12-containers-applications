@@ -1,0 +1,7 @@
+services:
+  frontend:
+   build:
+    context: ./todo-frontend
+    dockerfile: Dockerfile
+   image : todo-frontend-prod
+   container_name : todo-frontend
