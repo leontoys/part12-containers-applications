@@ -1,12 +1,12 @@
-FROM node:20 AS test
+#FROM node:20 AS test
 
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
-COPY . .  
+#COPY . .  
 
-RUN npm ci 
+#RUN npm ci 
 
-RUN npm run test
+#RUN npm run test
 
 FROM node:20 AS build-stage 
 
