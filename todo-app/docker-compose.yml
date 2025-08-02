@@ -28,6 +28,7 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes:
       - ./mongo_data:/data/db
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js  # mount existing script
 
   redis:
     image: redis
@@ -37,12 +38,14 @@ services:
       - ./redis_data:/data
 
   nginx:
-    image: todo-frontend-prod
+    image: nginx:alpine
     container_name: reverse-proxy
     ports:
       - 8080:80
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./todo-frontend/dist:/usr/share/nginx/html:ro 
     depends_on:
       - frontend
       - backend
+
