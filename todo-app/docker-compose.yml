@@ -13,8 +13,8 @@ services:
     image: todo-backend-prod
     container_name: todo-backend
     environment:
-      - MONGO_URL=mongodb://mongo:27017/the_database
-      - REDIS_URL=redis://redis:6379
+      MONGO_URL : mongodb://the_username:the_password@mongo:27017/the_database
+      REDIS_URL : redis://redis:6379
     depends_on:
       - mongo
       - redis
@@ -27,16 +27,15 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: the_database
     volumes:
-      - ./mongo_data:/data/db
-      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js  # mount existing script
+      - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./todo-backend/mongo_data:/data/db
 
   redis:
     image: redis
     container_name: redis
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
-      - ./redis_data:/data
-
+      - ./todo-backend/redis_data:/data
   nginx:
     image: nginx:alpine
     container_name: reverse-proxy
