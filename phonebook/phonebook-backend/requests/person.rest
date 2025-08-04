@@ -21,8 +21,8 @@ POST {{baseUrl}}/api/persons
 Content-Type: application/json
 
 {
-  "name": "Alan Turing",
-  "number": "23-456789"
+  "name": "Ada Lovelace",
+  "number": "01-23456789"
 }
 
 
