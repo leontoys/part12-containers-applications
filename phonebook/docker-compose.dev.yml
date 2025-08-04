@@ -24,14 +24,16 @@ services:
     container_name: phonebook-backend-dev
     depends_on:
      - mongo
-services:
   app:
     image: phonebook-front-dev
     build:
-      context: . # The context will pick this directory as the "build context"
+      context: ./phonebook-frontend # The context will pick this directory as the "build context"
       dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
     volumes:
-      - ./:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
+      - ./phonebook-frontend/:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
     ports:
-      - 5173:5173
-    container_name: hello-front-dev # This will name the container hello-front-dev
+      - 3210:5173
+    container_name: phonebook-front-dev # This will name the container hello-front-dev
+    depends_on:
+      - server
+      - mongo
