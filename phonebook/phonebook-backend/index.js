@@ -41,7 +41,10 @@ morgan.token('custom', (req) => JSON.stringify(req.body) )
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :custom'))
 
 const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+  response.status(404).send({
+    error: 'unknown endpoint',
+    path: request.originalUrl,
+  })
 }
 
 app.get('/', (request, response) => {
