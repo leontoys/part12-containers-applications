@@ -1,23 +1,9 @@
-#FROM node:20
-
-#WORKDIR /usr/src/app
-
-#COPY . . 
-
-#RUN npm install
-
-#CMD [ "npm", "run","build" ]
-
 FROM node:20
 
 WORKDIR /usr/src/app
 
-COPY --chown=node:node . .
+COPY . .
 
-RUN npm ci 
+RUN npm install
 
-ENV DEBUG=todo-backend:*
-
-USER node
-
-CMD npm start
+CMD ["npm", "start"]

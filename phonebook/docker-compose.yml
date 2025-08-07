@@ -22,3 +22,28 @@ services:
     container_name: reverse-proxy-prod
     depends_on:
       - app
+  server:
+    image: phonebook-backend-prod
+    build : 
+      context: ./phonebook-backend
+      dockerfile: Dockerfile
+    #volumes:
+    #  - ./phonebook-backend/:/usr/src/app
+    #ports:
+    #  - 5000:3001
+    environment:
+      MONGODB_URI : mongodb://the_username:the_password@mongo:27017/the_database
+    container_name: phonebook-backend-prod
+    depends_on:
+     - mongo
+  mongo:
+    image: mongo
+    ports:
+      - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes: 
+      - ./phonebook-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo_data:/data/db
